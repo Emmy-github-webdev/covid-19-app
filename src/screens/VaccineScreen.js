@@ -1,28 +1,21 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Message from '../components/Message';
-import { listVaccine } from '../redux/actions/vaccineActions';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const VaccineScreen = () => {
-  const dispatch = useDispatch();
-
-  const vaccineList = useSelector((state) => state.vaccineList);
-  const { error, All } = vaccineList;
-
-  useEffect(() => {
-    dispatch(listVaccine);
-  }, []);
-
-  return (
-    <div className="vaccine-screen-container">
-      {error && <Message variant="danger">{error}</Message>}
-      {All.map((vaccine) => (
-        <div key={vaccine.All.country}>
-          <div>{vaccine.All.country}</div>
-        </div>
-      ))}
+const VaccineScreen = ({ vaccine, getCountry }) =>  (
+    <div className='vaccine-screen-wrapper'>
+      <Link to={`/${vaccine.All.country}/details`} onClick={getCountry} type='submit'>
+        <span>@</span>
+      </Link>
+      <h2>{vaccine.All.country}</h2>
+      <h3>{vaccine.All.people_vaccinated}</h3>
     </div>
   );
+
+VaccineScreen.PropTypes = {
+  getCountry: PropTypes.func.isRequired,
+  vaccine: PropTypes.object.isRequired,
 };
 
 export default VaccineScreen;
+
