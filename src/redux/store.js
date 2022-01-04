@@ -1,20 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import {
-  vaccineListReducer,
-} from './reducer/vaccineReducers';
+import thunk from 'redux-thunk';
+import vacineReducer from './reducer/vacineReducer';
 
 const reducer = combineReducers({
-  vaccineList: vaccineListReducer,
+  vaccine: vacineReducer,
 });
 
-const middleware = [thunk, logger];
-
-const store = createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(...middleware)),
-);
-
+const store = createStore(reducer, applyMiddleware(logger, thunk));
 export default store;

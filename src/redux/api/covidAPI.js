@@ -1,26 +1,31 @@
 import axios from 'axios';
 import _ from 'lodash';
-import {getContinent, getContinentFail, getCountry, getCountryFail} from '../actions/vaccineActions';
+import {
+  fetchContinent,
+  fetchContinentFailure,
+  fetchCountryDetails,
+} from '../actions/vaccineActions';
 
-const URL = 'https://covid-api.mmediagroup.fr/v1/vaccines?continent=africa';
+const baseURL = 'https://covid-api.mmediagroup.fr/v1/vaccines?continent=africa';
 
-export const listContinent = () => (dispatch) => {
-  axios.get(URL).then((res) => {
-    const continentInfos = res.data;
-    const continent = [];
-    _.forEach(continentInfos, (continentInfo) => continent.push(continentInfo));
-    dispatch(getContinent(continent));
-  })
-  .catch((error) => {
-    dispatch(getContinentFail(error.message))
-  });
+export const fetchVacinated = () => (dispatch) => {
+  axios
+    .get(baseURL)
+    .then((res) => {
+      const reports = res.data;
+      const continent = [];
+      _.forEach(reports, (report) => continent.push(report));
+      dispatch(fetchContinent(continent));
+    })
+    .catch((err) => {
+      dispatch(fetchContinentFailure(err.message));
+    });
 };
 
-export const listCountry = () => (dispatch) => {
-  axios.get(`https://covid-api.mmediagroup.fr/v1/vaccines?country=${countryId}`).then(() => {
-      dispatch(getCountry(countryId));
-    })
-    .catch((error) => {
-      dispatch(getCountryFail(error.message));
+export const fetchCountry = (countryId) => (dispatch) => {
+  axios
+    .get(`https://covid-api.mmediagroup.fr/v1/vaccines?country=${countryId}`)
+    .then(() => {
+      dispatch(fetchCountryDetails(countryId));
     });
 };

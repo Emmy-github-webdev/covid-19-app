@@ -1,26 +1,25 @@
-import {
-  VACCINE_LIST_COUNTRY_SUCCESS,
-  VACCINE_LIST_COUNTRY_FAIL,
-  VACCINE_LIST_CONTINENT_SUCCESS,
-  VACCINE_LIST_CONTINENT_FAIL,
-} from '../constants/vaccineConstants';
+export const FETCH_CONTINENT = 'react-capstone-project/action/FETCH_CONTINENT';
+export const FETCH_CONTINENT_FAILURE = 'react-capstone-project/action/FETCH_CONTINENT_FAILURE';
 
-export const getContinent = (payload) => ({
-  type: VACCINE_LIST_CONTINENT_SUCCESS,
+export const FETCH_COUNTRY = 'react-capstone-project/action/FETCH_COUNTRY';
+export const FETCH_COUNTRY_FAILURE = 'react-capstone-project/action/FETCH_COUNTRY_FAILURE';
+
+export const fetchContinent = (payload) => ({
+  type: FETCH_CONTINENT,
   payload,
 });
 
-export const getContinentFail = (error) => ({
-  type: VACCINE_LIST_CONTINENT_FAIL,
-  payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+export const fetchContinentFailure = (error) => ({
+  type: FETCH_CONTINENT_FAILURE,
+  payload: error,
 });
 
-export const getCountry = (payload) => ({
-  type: VACCINE_LIST_COUNTRY_SUCCESS,
+export const fetchCountryDetails = (payload) => ({
+  type: FETCH_COUNTRY,
   payload,
 });
 
-export const getCountryFail = (error) => ({
-  type: VACCINE_LIST_COUNTRY_FAIL,
-  payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+export const fetchCountryFailure = (error) => ({
+  type: FETCH_COUNTRY_FAILURE,
+  payload: error,
 });
