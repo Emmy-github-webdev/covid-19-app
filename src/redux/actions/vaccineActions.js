@@ -20,7 +20,7 @@ export const getCountry = (payload) => ({
   payload,
 });
 
-export const getCoUNTRYFail = (error) => ({
+export const getCountryFail = (error) => ({
   type: VACCINE_LIST_COUNTRY_FAIL,
   payload: error.response && error.response.data.message ? error.response.data.message : error.message,
 });
