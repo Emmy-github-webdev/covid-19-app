@@ -9,26 +9,27 @@ import {
 const initialState = [];
 
 export const vaccineListReducer = (state = initialState, action) => {
-  const {type, payload} = action;
+  const { type, payload } = action;
 
   switch (type) {
-    case VACCINE_LIST_COUNTRY_SUCCESS:
+    case VACCINE_LIST_COUNTRY_SUCCESS: {
       const newState = _.filter(
         state, (vaccine) => vaccine.All.country === payload,
       );
       return newState;
+    }
 
     case VACCINE_LIST_COUNTRY_FAIL:
       return {
         error: action.payload,
       };
-    
-    case VACCINE_LIST_CONTINENT_SUCCESS: 
+
+    case VACCINE_LIST_CONTINENT_SUCCESS:
       return payload;
     case VACCINE_LIST_CONTINENT_FAIL:
       return {
-        error: action.payload
-      }
+        error: action.payload,
+      };
     default:
       return state;
   }
