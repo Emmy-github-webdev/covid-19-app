@@ -33,6 +33,11 @@ To get a local copy up and running follow these simple example steps.
 
 ### Install
 
+- React
+npx create-react-app the-app-name
+- Redux
+npm install redux react-redux redux-thunk redux-devtools-extension redux-logger
+
 ### Usage
 
 ### Run tests
