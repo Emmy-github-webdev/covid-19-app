@@ -1,10 +1,10 @@
+import _ from 'lodash';
 import {
   VACCINE_LIST_COUNTRY_SUCCESS,
   VACCINE_LIST_COUNTRY_FAIL,
   VACCINE_LIST_CONTINENT_SUCCESS,
   VACCINE_LIST_CONTINENT_FAIL,
 } from '../constants/vaccineConstants';
-import _ from 'lodash';
 
 const initialState = [];
 
