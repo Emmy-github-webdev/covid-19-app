@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCountryDetails } from '../redux/actions/vaccineActions';
-import covid from '../images/covid.svg';
+import covid from '../images/covid-19.jpeg';
 import HeaderComp from '../components/HeaderComp';
 import '../App.css';
 
