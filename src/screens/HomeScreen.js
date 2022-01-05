@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchVacinated, fetchCountry } from '../redux/api/covidAPI';
 import VaccineScreen from './VaccineScreen';
@@ -7,7 +7,6 @@ import '../App.css';
 import HeaderComp from '../components/HeaderComp';
 
 const HomeScreen = () => {
-  const [searchCountry, setSearchCountry] = useState('');
   const dispatch = useDispatch();
   const reports = useSelector((state) => state.vaccine);
   const peopleVaccinated = [];
@@ -22,12 +21,6 @@ const HomeScreen = () => {
     const vaccineId = vaccinated.getAttribute('data-id');
     dispatch(fetchCountry(vaccineId));
   };
-
-  const filterCountryByName = (e) => {
-    const countryId = e.target.value;
-    setSearchCountry(countryId);
-  };
-
   useEffect(() => {
     dispatch(fetchVacinated());
   }, []);
@@ -44,14 +37,11 @@ const HomeScreen = () => {
         </div>
       </div>
       <div className="sorted-bar">
-        <h1>SORTED BY COUNTRY</h1>
-        <div className="input-holder">
-          <input type="text" placeholder="Search country name" name="search-input" onChange={filterCountryByName} />
-        </div>
+        <h1>STATS BY COUNTRY</h1>
       </div>
       <div className="home-wrapper row g-0">
         {reports
-        && reports.filter((item) => item.All.country.toLowerCase().includes(searchCountry.toLowerCase())).map((vaccine) => (
+        && reports.filter((item) => item.All.country.toLowerCase()).map((vaccine) => (
           <VaccineScreen
             vaccine={vaccine}
             key={vaccine.All.country}

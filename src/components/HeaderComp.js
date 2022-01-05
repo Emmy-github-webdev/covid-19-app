@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaMicrophone, FaAngleLeft } from 'react-icons/fa';
+import { IoIosArrowBack } from 'react-icons/io';
 import { MdSettings } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import '../App.css';
@@ -10,9 +11,10 @@ const HeaderComp = ({ title }) => {
   const currentYear = year.getUTCFullYear();
   if (title === 'Africa') {
     return (
-      <>
-        <nav className="nav d-flex justify-content-between px-2" data-testid="navbar">
+      <div>
+        <nav className="nav" data-testid="navbar">
           <div className="year-wrapper">
+            <IoIosArrowBack color="white" />
             {currentYear}
           </div>
           <div className="title-wrapper"><h1>{title}</h1></div>
@@ -25,7 +27,7 @@ const HeaderComp = ({ title }) => {
             </div>
           </div>
         </nav>
-      </>
+      </div>
     );
   }
   return (
