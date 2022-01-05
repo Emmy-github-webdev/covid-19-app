@@ -1,7 +1,7 @@
-import HeaderComp from '../components/HeaderComp';
+import { BrowserRouter as Router } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
-import { BrowserRouter as Router } from 'react-router-dom';
+import HeaderComp from '../components/HeaderComp';
 
 describe('Check page rendering', () => {
   it('Should render without error', () => {
