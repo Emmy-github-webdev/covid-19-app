@@ -1,28 +1,24 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Message from '../components/Message';
-import { listVaccine } from '../redux/actions/vaccineActions';
+/* eslint-disable react/forbid-prop-types */
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import React from 'react';
+import { BsArrowRightCircleFill } from 'react-icons/bs';
+import '../App.css';
 
-const VaccineScreen = () => {
-  const dispatch = useDispatch();
-
-  const vaccineList = useSelector((state) => state.vaccineList);
-  const { error, All } = vaccineList;
-
-  useEffect(() => {
-    dispatch(listVaccine);
-  }, []);
-
-  return (
-    <div className="vaccine-screen-container">
-      {error && <Message variant="danger">{error}</Message>}
-      {All.map((vaccine) => (
-        <div key={vaccine.All.country}>
-          <div>{vaccine.All.country}</div>
-        </div>
-      ))}
+const VaccineScreen = ({ vaccine, getCountry }) => (
+  <>
+    <div className="card inner-wrapper" data-id={vaccine.All.country} data-testid="card">
+      <Link to={`/detail/${vaccine.All.country}`} onClick={getCountry} type="submit">
+        <BsArrowRightCircleFill color="white" />
+      </Link>
+      <h1>{vaccine.All.country}</h1>
+      <h1>{vaccine.All.people_vaccinated.toLocaleString()}</h1>
     </div>
-  );
-};
+  </>
+);
 
+VaccineScreen.propTypes = {
+  vaccine: PropTypes.object.isRequired,
+  getCountry: PropTypes.func.isRequired,
+};
 export default VaccineScreen;
