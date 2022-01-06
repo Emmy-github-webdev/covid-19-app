@@ -1,4 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import React from 'react';
@@ -18,7 +17,7 @@ const VaccineScreen = ({ vaccine, getCountry }) => (
 );
 
 VaccineScreen.propTypes = {
-  vaccine: PropTypes.object.isRequired,
+  vaccine: PropTypes.shape({}).isRequired,
   getCountry: PropTypes.func.isRequired,
 };
 export default VaccineScreen;
