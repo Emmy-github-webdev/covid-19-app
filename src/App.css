@@ -118,6 +118,10 @@ nav {
   width: 100%;
 }
 
+.detail-img {
+  background-color: #fff;
+}
+
 .list-detail {
   background-color: #dc4782;
 }

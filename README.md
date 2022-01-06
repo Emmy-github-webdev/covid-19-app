@@ -18,11 +18,11 @@ This project is about building a mobile web application to check a list of metri
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://sad-heyrovsky-c7f6a5.netlify.app/)
 
 ## Presentation
 
-[Video Link](https://livedemo.com)
+[Video Link](https://www.loom.com/share/f74627c586364dd791d376477ec8e733)
 
 
 ## Getting Started
