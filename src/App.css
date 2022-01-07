@@ -1,0 +1,140 @@
+body {
+  background-color: #d04379;
+  color: aliceblue;
+}
+
+.home-wrapper {
+  width: 100%;
+  text-align: end;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+.card-wrapper {
+  display: inline-grid;
+}
+
+.inner-wrapper {
+  background-image: url('../src/images/africa-map.svg');
+  background-repeat: no-repeat;
+  background-size: 95px;
+  background-position: 10% 20%;
+  padding: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: azure;
+}
+
+.hero-wrapper {
+  background-color: #fb5092;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: 35%;
+  padding: 25px;
+}
+
+.hero-img-display {
+  width: 50%;
+}
+
+.hero-img-display img {
+  width: 100%;
+}
+
+.header-wrapper {
+  width: 50%;
+}
+
+nav {
+  background-color: #ec4c8b;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.year-wrapper {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.title-wrapper h1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.icon-one {
+  margin-right: 10px;
+}
+
+.card {
+  background-color: #dc4782;
+}
+
+.card:nth-child(4n - 2) {
+  background-color: #d04379;
+}
+
+.card:nth-child(4n - 1) {
+  background-color: #d04379;
+}
+
+.title-wrapper {
+  font-size: 5px;
+}
+
+.sorted-bar {
+  background-color: #df4783;
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sorted-bar h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.vaccine-img-wrapper img {
+  width: 15%;
+}
+
+.detail-img img {
+  width: 100%;
+}
+
+.detail-img {
+  background-color: #fff;
+}
+
+.list-detail {
+  background-color: #dc4782;
+}
+
+.list-detail li:nth-child(even) {
+  background-color: #d04379;
+}
+
+.list-detail li:nth-child(odd) {
+  background-color: #df4783;
+}
+
+.list-group-item {
+  color: aliceblue;
+  font-weight: bold;
+}
